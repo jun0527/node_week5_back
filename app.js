@@ -3,7 +3,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
-const errHandle = require('./handle/errHandle');
 const dotenv = require('dotenv');
 const cors = require('cors');
 dotenv.config({path: './config.env'});
@@ -81,7 +80,12 @@ app.use((err, req, res, next) => {
   }
   // 錯誤為mongoose錯誤，且環境為production
   if (err.name === 'ValidationError') {
+    err.statusCode = 400;
     err.message = '欄位未填寫正確，請重新輸入！';
+    err.isOperational = true;
+    return resErrorProd(err, res);
+  }
+  if (err.name === 'SyntaxError' && err.statusCode === 400) {
     err.isOperational = true;
     return resErrorProd(err, res);
   }

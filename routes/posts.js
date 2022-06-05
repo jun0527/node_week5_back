@@ -1,7 +1,6 @@
 const express = require('express');
 const Post = require('../models/posts');
 const User = require('../models/users');
-const errHandle = require('../handle/errHandle');
 const appError = require('../service/appError');
 const handleErrorAsync = require('../service/handleErrorAsync');
 // 建立router實體
