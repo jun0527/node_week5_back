@@ -41,9 +41,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
-app.use('/', indexRouter);
+app.use('/', postsRouter);
 app.use('/users', usersRouter);
-app.use('/posts', postsRouter);
 // 404錯誤
 app.use((req, res, next) => {
   appError(404, '找不到此路由', next);
@@ -86,6 +85,12 @@ app.use((err, req, res, next) => {
     return resErrorProd(err, res);
   }
   if (err.name === 'SyntaxError' && err.statusCode === 400) {
+    err.isOperational = true;
+    return resErrorProd(err, res);
+  }
+  if (err.name === 'CastError' && err.kind === 'ObjectId') {
+    err.statusCode = 400;
+    err.message = 'id格式錯誤！';
     err.isOperational = true;
     return resErrorProd(err, res);
   }

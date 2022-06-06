@@ -41,7 +41,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://pacific-anchorage-02580.herokuapp.com/posts",
+					"raw": "https://pacific-anchorage-02580.herokuapp.com/post",
 					"protocol": "https",
 					"host": [
 						"pacific-anchorage-02580",
@@ -49,7 +49,7 @@
 						"com"
 					],
 					"path": [
-						"posts"
+						"post"
 					]
 				}
 			},
@@ -81,7 +81,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://pacific-anchorage-02580.herokuapp.com/posts/:id",
+					"raw": "https://pacific-anchorage-02580.herokuapp.com/post/:id",
 					"protocol": "https",
 					"host": [
 						"pacific-anchorage-02580",
@@ -89,7 +89,7 @@
 						"com"
 					],
 					"path": [
-						"posts",
+						"post",
 						":id"
 					],
 					"variable": [
@@ -117,7 +117,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://pacific-anchorage-02580.herokuapp.com/posts/:id",
+					"raw": "https://pacific-anchorage-02580.herokuapp.com/post/:id",
 					"protocol": "https",
 					"host": [
 						"pacific-anchorage-02580",
@@ -125,13 +125,13 @@
 						"com"
 					],
 					"path": [
-						"posts",
+						"post",
 						":id"
 					],
 					"variable": [
 						{
 							"key": "id",
-							"value": "629b97cb95d7c8ced0275304"
+							"value": "629e3c85b6fe0139b354804e"
 						}
 					]
 				}
